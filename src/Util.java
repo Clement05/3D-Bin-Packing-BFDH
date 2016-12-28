@@ -58,4 +58,30 @@ public class Util {
 		   // do something
 		}
 	}
+	
+	public static LinkedList<Part> SortPart(LinkedList<Part> parts){
+		int length = parts.size();
+		for(int i = length - 1; i >= 0; i--){
+			for (int j = 0; j < i; j++) {
+				if (parts.get(j+1).getZ2() > parts.get(j).getZ2()) {
+					Part tmpPart = parts.get(j);
+					parts.set(j, parts.get(j+1));
+					parts.set(j+1, tmpPart);
+				}else if(parts.get(j+1).getZ2() == parts.get(j).getZ2()){
+					if (parts.get(j+1).getY2() > parts.get(j).getY2()) {
+						Part tmpPart = parts.get(j);
+						parts.set(j, parts.get(j+1));
+						parts.set(j+1, tmpPart);
+					} else if(parts.get(j+1).getY2() == parts.get(j).getY2()){
+						if (parts.get(j+1).getX2() > parts.get(j).getX2()) {
+							Part tmpPart = parts.get(j);
+							parts.set(j, parts.get(j+1));
+							parts.set(j+1, tmpPart);
+						}
+					}
+				}
+			}	
+		}
+		return parts;
+	}
 }

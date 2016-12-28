@@ -30,6 +30,8 @@ public class Prog {
 		
 		//Populate list of part to fill in chamber from text file
 		allParts = Util.GeneratePartFromFileInput("C:/Users/girarcle/Desktop/instance2HeightSorted.txt");
+		//Sort list by Z, Y and X decreasing
+		Util.SortPart(allParts);
 		//Define a new chamber
 		Chamber myChamber = new Chamber(0,0,0,0,10,10,10);
 
